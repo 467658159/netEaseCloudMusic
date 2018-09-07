@@ -1,6 +1,8 @@
 # 网易云音乐
 
-> A Vue.js project
+> vue和网易云音乐接口仿的网易云音乐
+
+[网易云音乐后台API](https://binaryify.github.io/NeteaseCloudMusicApi/#/)
 
 ## Build Setup
 
