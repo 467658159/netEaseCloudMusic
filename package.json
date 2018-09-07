@@ -1,7 +1,7 @@
 {
-  "name": "vueyxy",
+  "name": "网易云音乐",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "vue net ease cloud music",
   "author": "anan",
   "private": true,
   "scripts": {
