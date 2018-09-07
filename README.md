@@ -2,7 +2,7 @@
 
 > vue和网易云音乐接口仿的网易云音乐
 
-[api地址](https://binaryify.github.io/NeteaseCloudMusicApi/#/) 网易云音乐后台API
+网易云音乐后台API  [api地址](https://binaryify.github.io/NeteaseCloudMusicApi/#/) 
 
 ## Build Setup
 
