@@ -7,8 +7,9 @@ import state from './state';
 import mutations from './mutations';
 import actions from './actions';
 import getters from './getters';
-import recommend from './modules/recommend'
-import playSongs from './modules/playSongs'
+import recommend from './modules/recommend';
+import playSongs from './modules/playSongs';
+import login from './modules/login';
 
 Vue.use(Vuex);
 
@@ -19,6 +20,7 @@ export default new Vuex.Store({
   getters,
   modules: {
     recommend,
-    playSongs
+    playSongs,
+    login
   }
 })

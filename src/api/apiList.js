@@ -2,6 +2,8 @@
  * Created by Administrator on 2018/8/29.
  */
 const apiList = {
+  //登录状态
+  queryStatus: '/login/status',
   //手机登录接口
   queryPhoneLogin: '/login/cellphone',
   //用户信息

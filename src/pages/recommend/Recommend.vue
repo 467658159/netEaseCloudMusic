@@ -25,7 +25,8 @@
           }
       },
       created () {
-        this.$store.dispatch('init');
+        this.$store.dispatch('initLoginStatus');
+        this.$store.dispatch('initRecommend');
       },
       computed: {
         ...mapState({

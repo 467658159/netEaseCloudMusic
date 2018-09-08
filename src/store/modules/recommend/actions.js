@@ -4,7 +4,7 @@
 import getData from '../../../api/getData'
 
 export default {
-  async init({dispatch}){
+  async initRecommend({dispatch}){
     // 获取banner
     dispatch('getRecommendBanners');
   },

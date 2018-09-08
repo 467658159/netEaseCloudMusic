@@ -3,7 +3,7 @@
  */
 export default {
   // 首页推荐
-
+  
   //banner 图
   bannerList: [],
 
