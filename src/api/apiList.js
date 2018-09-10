@@ -6,6 +6,8 @@ const apiList = {
   queryStatus: '/login/status',
   //手机登录接口
   queryPhoneLogin: '/login/cellphone',
+  //邮箱登录
+  queryEmailLogin: '/login',
   //用户信息
   queryUserSubcount: '/user/playlist',
   //获取轮播banner{个性推荐}
