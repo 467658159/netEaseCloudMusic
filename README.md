@@ -4,11 +4,8 @@
 
  [网易云音乐后台API地址](https://binaryify.github.io/NeteaseCloudMusicApi/#/) 
 
-##技术栈
-> vue
-> vux
-> vuex
-> axios
+## 技术栈
+> vue + vuex + vux + axios
 
 ## Build Setup
 
