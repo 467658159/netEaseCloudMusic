@@ -6,14 +6,9 @@ import getData from '../../../api/getData'
 export default {
   //初始化actions
 	async initLoginStatus({dispatch}){
-		dispatch('getLoginStatus');
+
 	},
-	// 获取登录状态
-	async getLoginStatus({commit}){
-		let res = await getData('queryStatus');
-		console.log(res);
-		commit('GET_LOGIN_STATUS', res.data);
-	},
+
   //登录
   async loginIn(context, paload){
 	  let loginType = context.state.loginType;
@@ -24,7 +19,6 @@ export default {
 
     if (loginType === 'emailLogin') {
       params.email = paload.emailLogin;
-      console.log(params);
       res = await getData('queryEmailLogin', params);
     } else {
       params.phone = paload.phoneLogin;

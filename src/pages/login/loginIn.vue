@@ -34,6 +34,7 @@
 	import { XHeader, XButton } from 'vux'
 	import { mapState } from 'vuex'
   import { Toast } from 'vux'
+  import util from '../../utils/util'
 
 	export default {
 		name: 'loginIn',
@@ -71,10 +72,17 @@
       async loginIn () {
         await this.$store.dispatch('loginIn', this.loginInfo);
         let loginCode = this.loginValue.code;
+//        判断登录是否成功
+//        登录成功
         if (loginCode === 200) {
+//          将登录返回值存储到cookie
+          util.setCookie('loginValue', JSON.stringify(this.loginValue), 7);
+
           this.$router.push({path: '/'})
+//          登录过于频繁
         } else if(loginCode === 415) {
           this.showLoginLimit = true
+//          登录失败
         } else {
           this.showLoginErr = true
         }
@@ -118,6 +126,9 @@
 		}
     .submitBtn:active{
       background-color: #ce3d3a;
+    }
+    i.iconfont{
+      font-size: .16rem;
     }
 	}
 

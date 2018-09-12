@@ -6,10 +6,6 @@ export default {
 	GET_LOGINTYPE(state, payload){
 		state.loginType = payload;
 	},
-	//获取登录状态
-	GET_LOGIN_STATUS(state, payload){
-		state.loginStatus = payload;
-	},
   //获取登录返回值
   GET_LOGIN_VALUE(state, payload){
 	  state.loginValue = payload;
