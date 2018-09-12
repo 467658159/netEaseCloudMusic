@@ -5,6 +5,7 @@
       <img width="100%" height="100%" :src="item.picUrl">
     </swiper-item>
   </swiper>
+  <router-link to="/account" style="display:block;width:100%;">账号账号账号账号账号账号账号账号账号账号账号账号账号账号账号账号账号账号账号账号账号账号账号账号账号账号账号账号账号账号</router-link>
   </div>
 
 </template>
@@ -25,14 +26,13 @@
 
           }
       },
-      async created () {
+      created () {
         let loginValue = null;
         //获取cookie信息
         if (util.getCookie('loginValue')) {
           loginValue = JSON.parse(util.getCookie('loginValue'));
         }
 
-        console.log(loginValue);
         //如果没有登录信息跳转到登录界面
         if (!loginValue) {
           this.$router.replace('/login')
@@ -45,6 +45,9 @@
         ...mapState({
           bannerList: state => state.recommend.bannerList
         })
+      },
+      methods:{
+
       }
   }
 </script>

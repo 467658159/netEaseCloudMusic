@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Recommend from '@/pages/recommend/Recommend'
 import Login from '@/pages/login/Login'
 import LoginIn from '@/pages/login/loginIn'
+import Account from '@/pages/account/account'
 
 Vue.use(Router);
 
@@ -27,6 +28,11 @@ export default new Router({
       name: 'loginIn',
       meta:{index:2},
       component: LoginIn
+    },{
+      path: '/account',
+      name: 'account',
+      meta:{index:1},
+      component: Account
     }
   ]
 })

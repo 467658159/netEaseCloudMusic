@@ -3,7 +3,7 @@
  */
 export default {
   setCookie(key,value,exdays) {
-    let exdate=new Date();//获取时间
+    let exdate = new Date();//获取时间
     exdate.setTime(exdate.getTime() + 24*60*60*1000*exdays);//保存的天数
     //字符串拼接cookie
     window.document.cookie = `${key}=${value};path=/;expires=${exdate.toGMTString()}`
@@ -25,7 +25,7 @@ export default {
     }
   },
   //清除cookie
-  clearCookie () {
-    this.setCookie("","",-1);//修改2值都为空，天数为负1天就好了
+  clearCookie (key) {
+    this.setCookie(key,"",-1);//修改2值都为空，天数为负1天就好了
   }
 }

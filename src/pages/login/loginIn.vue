@@ -78,7 +78,7 @@
 //          将登录返回值存储到cookie
           util.setCookie('loginValue', JSON.stringify(this.loginValue), 7);
 
-          this.$router.push({path: '/'})
+          this.$router.replace({path: '/'})
 //          登录过于频繁
         } else if(loginCode === 415) {
           this.showLoginLimit = true
