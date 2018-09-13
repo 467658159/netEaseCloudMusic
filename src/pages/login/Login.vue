@@ -10,8 +10,8 @@
 </template>
 <script>
   export default {
-      name: 'Login',
-      data(){
+      name: 'login',
+      data () {
           return {
 
         }

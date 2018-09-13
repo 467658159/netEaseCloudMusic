@@ -4,7 +4,7 @@
       :show.sync="drawerVisibility"
       :drawer-style="{'background-color':'#eee', width: '3rem', position: 'fixed'}">
       <div slot="drawer" class="drawerContent">
-        <p>1</p>
+        <router-link to="/account" style="display:block;width:100%;">账号</router-link>
       </div>
 
       <transition :name="swichPageAnimate">
@@ -60,6 +60,7 @@ export default {
   @import '~vux/src/styles/reset.less';
   @import '~vux/src/styles/1px.less';
   @import './assets/style/common';
+  @import './assets/style/pageAnimate';
   #app {
     width: 100%;
     height:100%;
@@ -68,29 +69,5 @@ export default {
   .drawerContent{
     overflow-y: scroll;
   }
-  //页面切换动画
-  .slide-right-enter-active,
-  .slide-right-leave-active,
-  .slide-left-enter-active,
-  .slide-left-leave-active {
-    will-change: transform;
-    transition: all 400ms;
-    position: absolute;
-  }
-  .slide-right-enter {
-    opacity: 0;
-    transform: translate3d(-100%, 0, 0);
-  }
-  .slide-right-leave-active {
-    opacity: 0;
-    transform: translate3d(100%, 0, 0);
-  }
-  .slide-left-enter {
-    opacity: 0;
-    transform: translate3d(100%, 0%, 0);
-  }
-  .slide-left-leave-active {
-    opacity: 0;
-    transform: translate3d(-100%, 0, 0);
-  }
+  
 </style>

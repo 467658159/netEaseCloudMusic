@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Recommend from '@/pages/recommend/Recommend'
-import Login from '@/pages/login/Login'
-import LoginIn from '@/pages/login/loginIn'
-import Account from '@/pages/account/account'
-import Search from '@/pages/search/search'
+import recommend from '@/pages/recommend/recommend'
+import login from '@/pages/login/login'
+import loginIn from '@/pages/login/loginIn'
+import account from '@/pages/account/account'
+import search from '@/pages/search/search'
+import recommendRouters from './recommend'
 
 Vue.use(Router);
 
@@ -16,29 +17,30 @@ export default new Router({
       redirect: '/recommend'
     }, {
       path: '/recommend',
-      name: 'Recommend',
+      name: 'recommend',
       meta:{index:1},
-      component: Recommend
+      component: recommend,
+      children: recommendRouters
     },{
       path: '/login',
-      name: 'Login',
+      name: 'login',
       meta:{index:1},
-      component: Login
+      component: login
     },{
       path: '/loginIn/:loginType',
       name: 'loginIn',
       meta:{index:2},
-      component: LoginIn
+      component: loginIn
     },{
       path: '/account',
       name: 'account',
       meta:{index:1},
-      component: Account
+      component: account
     },{
       path: '/search',
       name: 'search',
       meta:{index:1},
-      component: Search
+      component: search
     }
   ]
 })
