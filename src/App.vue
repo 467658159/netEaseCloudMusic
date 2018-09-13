@@ -1,18 +1,31 @@
 <template>
   <div id="app">
-    <transition :name="swichPageAnimate">
-      <router-view/>
-    </transition>
+    <drawer
+      :show.sync="drawerVisibility"
+      :drawer-style="{'background-color':'#eee', width: '3rem', position: 'fixed'}">
+      <div slot="drawer" class="drawerContent">
+        <p>1</p>
+      </div>
+
+      <transition :name="swichPageAnimate">
+        <router-view/>
+      </transition>
+    </drawer>
   </div>
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+  import { Drawer } from 'vux'
 
 export default {
   name: 'App',
+  components: {
+    Drawer
+  },
   data () {
     return {
-        swichPageAnimate:''
+      swichPageAnimate: '',
     }
   },
   watch: {//使用watch 监听$router的变化
@@ -25,6 +38,19 @@ export default {
         this.swichPageAnimate = 'slide-right';
       }
     }
+  },
+  computed: {
+    ...mapState({
+      drawerVisibility: state => state.recommend.drawerVisibility,
+    }),
+    drawerVisibility: {
+      get () {
+          return this.$store.state.recommend.drawerVisibility
+      },
+      set () {
+          this.$store.commit('DRAWER_SHOW')
+      }
+    }
   }
 
 }
@@ -33,10 +59,14 @@ export default {
 <style lang="less">
   @import '~vux/src/styles/reset.less';
   @import '~vux/src/styles/1px.less';
+  @import './assets/style/common';
   #app {
     width: 100%;
     height:100%;
     font-size: .12rem;
+  }
+  .drawerContent{
+    overflow-y: scroll;
   }
   //页面切换动画
   .slide-right-enter-active,

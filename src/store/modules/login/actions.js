@@ -24,7 +24,6 @@ export default {
       params.phone = paload.phoneLogin;
       res = await getData('queryPhoneLogin', params);
     }
-    console.log(res.data);
     context.commit('GET_LOGIN_VALUE', res.data);
   }
 }

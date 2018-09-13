@@ -4,7 +4,7 @@
 	</div>
 </template>
 <script>
-	import util from '../../utils/util'
+  import { cookie } from 'vux'
 
 	export default {
 		name: 'account',
@@ -15,12 +15,12 @@
 		},
 		methods: {
 			loginOut () {
-				util.clearCookie('loginValue')
+        cookie.remove('loginValue');
 				this.$router.replace('/login')
 			}
 		}
 	}
 </script>
 <style scoped lang="less">
-	
+
 </style>

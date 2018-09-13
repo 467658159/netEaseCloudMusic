@@ -2,7 +2,6 @@
 	<div class="loginIn">
 		<div class="loginTitle">
 			<XHeader
-			style="background-color: #ce3d3a;"
 			:left-options = "{backText:''}"
 			:title = "loginType=='emailLogin'?'电子邮箱登录':'手机号登录'"
 			></XHeader>
@@ -31,10 +30,8 @@
 	</div>
 </template>
 <script>
-	import { XHeader, XButton } from 'vux'
 	import { mapState } from 'vuex'
-  import { Toast } from 'vux'
-  import util from '../../utils/util'
+  import { XHeader, XButton, Toast, cookie } from 'vux'
 
 	export default {
 		name: 'loginIn',
@@ -42,7 +39,7 @@
 			XHeader,
 			XButton,
       Toast
-		},
+    },
 		data () {
 			return {
         loginInfo: {
@@ -76,8 +73,9 @@
 //        登录成功
         if (loginCode === 200) {
 //          将登录返回值存储到cookie
-          util.setCookie('loginValue', JSON.stringify(this.loginValue), 7);
-
+          cookie.set('loginValue', JSON.stringify(this.loginValue), {
+            expires: 30
+          });
           this.$router.replace({path: '/'})
 //          登录过于频繁
         } else if(loginCode === 415) {
