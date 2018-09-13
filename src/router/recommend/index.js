@@ -9,12 +9,12 @@ export default [
   {
     path: 'myMusic',
     name: 'myMusic',
-    meta:{index:2},
+    meta:{index:0},
     component: myMusic
   },{
     path: 'discoverMusic',
     name: 'discoverMusic',
-    meta:{index:2},
+    meta:{index:1},
     component: discoverMusic
   },{
   	path: 'videoMusic',
