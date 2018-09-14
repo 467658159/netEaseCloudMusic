@@ -5,10 +5,10 @@
 </template>
 <script>
 	export default {
-		name: 'myMusic',
+		name: 'my',
 		data () {
 			return {
-				
+
 			}
 		},
 		created () {
@@ -17,5 +17,5 @@
 	}
 </script>
 <style scoped>
-	
+
 </style>

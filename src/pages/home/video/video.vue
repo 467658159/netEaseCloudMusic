@@ -5,17 +5,17 @@
 </template>
 <script>
 	export default {
-		name: 'videoMusic',
+		name: 'video',
 		data () {
 			return {
-				
+
 			}
 		},
 		created () {
-			console.log('videoMusic')
+			console.log('videoo')
 		}
 	}
 </script>
 <style scoped>
-	
+
 </style>

@@ -7,9 +7,10 @@ import state from './state';
 import mutations from './mutations';
 import actions from './actions';
 import getters from './getters';
+import login from './modules/login';
+import home from './modules/home';
 import recommend from './modules/recommend';
 import playSongs from './modules/playSongs';
-import login from './modules/login';
 
 Vue.use(Vuex);
 
@@ -19,8 +20,9 @@ export default new Vuex.Store({
   actions,
   getters,
   modules: {
+    login,
+    home,
     recommend,
     playSongs,
-    login
   }
 })

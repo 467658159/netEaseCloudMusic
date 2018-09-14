@@ -6,7 +6,7 @@
       <div slot="drawer" class="drawerContent">
         <router-link to="/account" style="display:block;width:100%;">账号</router-link>
       </div>
-
+      <div class="headerBackground"></div>
       <transition :name="swichPageAnimate">
         <router-view/>
       </transition>
@@ -17,6 +17,7 @@
 <script>
   import { mapState } from 'vuex'
   import { Drawer } from 'vux'
+  import util from './utils/util'
 
 export default {
   name: 'App',
@@ -30,22 +31,17 @@ export default {
   },
   watch: {//使用watch 监听$router的变化
     $route(to, from) {
-      //如果to索引大于from索引,判断为前进状态,反之则为后退状态
-      if(to.meta.index > from.meta.index){
-        //设置动画名称
-        this.swichPageAnimate = 'slide-left';
-      }else{
-        this.swichPageAnimate = 'slide-right';
-      }
+      util.watchPageAnimate(to, from, this);
     }
   },
   computed: {
     ...mapState({
-      drawerVisibility: state => state.recommend.drawerVisibility,
+      drawerVisibility: state => state.home.drawerVisibility,
     }),
+//    drawer显示
     drawerVisibility: {
       get () {
-          return this.$store.state.recommend.drawerVisibility
+          return this.$store.state.home.drawerVisibility
       },
       set () {
           this.$store.commit('DRAWER_SHOW')
@@ -60,14 +56,20 @@ export default {
   @import '~vux/src/styles/reset.less';
   @import '~vux/src/styles/1px.less';
   @import './assets/style/common';
+  @import './assets/style/mixin';
   @import './assets/style/pageAnimate';
   #app {
     width: 100%;
     height:100%;
     font-size: .12rem;
   }
+  .headerBackground{
+    .mx_wh(100%, 4rem);
+    background-color: #ce3d3a;
+    .mx_postl(0rem, 0rem)
+  }
   .drawerContent{
     overflow-y: scroll;
   }
-  
+
 </style>

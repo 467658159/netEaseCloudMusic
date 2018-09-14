@@ -5,7 +5,7 @@
     <x-icon slot="overwrite-left" type="navicon" size="35" style="fill:#fff;position:relative;left:-3px;top:-2px;" @click="$store.commit('DRAWER_SHOW')"></x-icon>
     <div slot="overwrite-title" class="recommendTitle">
       <i class="iconfont  icon-yinle" @click="skipPage(0)" :class="{recoActive: tabIndex == 0}"></i>
-      <i class="iconfont  icon-wangyiyunyinle" @click="skipPage(1)" :class="{recoActive: tabIndex == 1}"></i>
+      <i class="iconfont  icon-wangyiyunyinlezizhi-copy" @click="skipPage(1)" :class="{recoActive: tabIndex == 1}"></i>
       <i class="iconfont  icon-zanting" @click="skipPage(2)" :class="{recoActive: tabIndex == 2}"></i>
     </div>
     <x-icon slot="right" type="ios-search-strong" size="30" style="fill:#fff;position:relative;left:-3px;" @click="$router.push('/search')"></x-icon>
@@ -20,9 +20,9 @@
 <script>
   import { mapState } from 'vuex'
   import { cookie, XHeader } from 'vux'
-
+  import util from '../../utils/util'
   export default {
-      name: 'recommend',
+      name: 'home',
       components:{
         XHeader
       },
@@ -38,7 +38,7 @@
         if (cookie.get('loginValue')) {
           loginValue = JSON.parse(cookie.get('loginValue'));
         }
-        console.log(loginValue);
+        console.dir(loginValue);
 
         //如果没有登录信息跳转到登录界面
         if (!loginValue) {
@@ -50,35 +50,19 @@
       },
       watch: {//使用watch 监听$router的变化
         $route(to, from) {
-          //如果to索引大于from索引,判断为前进状态,反之则为后退状态
-          if(to.meta.index > from.meta.index){
-            //设置动画名称
-            this.swichPageAnimate = 'slide-left';
-          }else{
-            this.swichPageAnimate = 'slide-right';
-          }
+          util.watchPageAnimate(to, from, this);
         }
       },
       computed: {
         ...mapState({
-          drawerVisibility: state => state.recommend.drawerVisibility
+          drawerVisibility: state => state.home.drawerVisibility
         }),
       },
       methods:{
         skipPage (index) {
-          if (index == 0) {
-            this.$router.push({
-              name: 'myMusic'
-            })
-          } else if (index == 1) {
-            this.$router.push({
-              name: 'discoverMusic'
-            })
-          } else if (index == 2) {
-            this.$router.push({
-              name: 'videoMusic'
-            })
-          }
+          //跳转的子页面的路由
+          let routerArr = ['my', 'discover', 'video'];
+          util.skipPageFn(index, this, routerArr);
           this.tabIndex = index
         }
       }
