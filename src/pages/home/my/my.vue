@@ -12,7 +12,7 @@
 			}
 		},
 		created () {
-			console.log('MyMusic')
+			
 		}
 	}
 </script>

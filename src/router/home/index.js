@@ -3,7 +3,7 @@
  */
 import my from '@/pages/home/my/my'
 import discover from '@/pages/home/discover/discover'
-import video from '@/pages/home/video/video'
+import videos from '@/pages/home/videos/videos'
 import discoverRouters from './discover'
 
 export default [
@@ -19,9 +19,9 @@ export default [
     component: discover,
     children: discoverRouters
   },{
-  	path: 'video',
-  	name: 'video',
+  	path: 'videos',
+  	name: 'videos',
     meta:{index:2},
-  	component: video
+  	component: videos
   }
 ]

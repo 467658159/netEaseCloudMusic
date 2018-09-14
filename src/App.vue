@@ -6,7 +6,6 @@
       <div slot="drawer" class="drawerContent">
         <router-link to="/account" style="display:block;width:100%;">账号</router-link>
       </div>
-      <div class="headerBackground"></div>
       <transition :name="swichPageAnimate">
         <router-view/>
       </transition>
@@ -63,12 +62,7 @@ export default {
     height:100%;
     font-size: .12rem;
   }
-  .headerBackground{
-    .mx_wh(100%, 4rem);
-    background-color: #ce3d3a;
-    .mx_postl(0rem, 0rem);
-    z-index: -1;
-  }
+
   .drawerContent{
     overflow-y: scroll;
   }

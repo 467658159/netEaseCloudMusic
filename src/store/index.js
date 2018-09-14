@@ -10,6 +10,7 @@ import getters from './getters';
 import login from './modules/login';
 import home from './modules/home';
 import recommend from './modules/recommend';
+import discover from './modules/discover';
 import playSongs from './modules/playSongs';
 
 Vue.use(Vuex);
@@ -24,5 +25,6 @@ export default new Vuex.Store({
     home,
     recommend,
     playSongs,
+    discover
   }
 })

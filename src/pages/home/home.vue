@@ -1,18 +1,19 @@
 <template>
   <div class="container">
-  <x-header class="header">
-    <span>overwrite-left</span>
-    <x-icon slot="overwrite-left" type="navicon" size="35" style="fill:#fff;position:relative;left:-3px;top:-2px;" @click="$store.commit('DRAWER_SHOW')"></x-icon>
-    <div slot="overwrite-title" class="recommendTitle">
-      <i class="iconfont  icon-yinle" @click="skipPage(0)" :class="{recoActive: tabIndex == 0}"></i>
-      <i class="iconfont  icon-wangyiyunyinlezizhi-copy" @click="skipPage(1)" :class="{recoActive: tabIndex == 1}"></i>
-      <i class="iconfont  icon-zanting" @click="skipPage(2)" :class="{recoActive: tabIndex == 2}"></i>
-    </div>
-    <x-icon slot="right" type="ios-search-strong" size="30" style="fill:#fff;position:relative;left:-3px;" @click="$router.push('/search')"></x-icon>
-  </x-header>
-  <transition :name="swichPageAnimate">
-    <router-view/>
-  </transition>
+    <div class="headerBackground"></div>
+    <x-header class="header">
+      <span>overwrite-left</span>
+      <x-icon slot="overwrite-left" type="navicon" size="35" style="fill:#fff;position:relative;left:-3px;top:-2px;" @click="$store.commit('DRAWER_SHOW')"></x-icon>
+      <div slot="overwrite-title" class="recommendTitle">
+        <i class="iconfont  icon-yinle" @click="skipPage(0)" :class="{recoActive: tabIndex == 0}"></i>
+        <i class="iconfont  icon-wangyiyunyinlezizhi-copy" @click="skipPage(1)" :class="{recoActive: tabIndex == 1}"></i>
+        <i class="iconfont  icon-zanting" @click="skipPage(2)" :class="{recoActive: tabIndex == 2}"></i>
+      </div>
+      <x-icon slot="right" type="ios-search-strong" size="30" style="fill:#fff;position:relative;left:-3px;" @click="$router.push('/search')"></x-icon>
+    </x-header>
+    <transition :name="swichPageAnimate">
+      <router-view/>
+    </transition>
   </div>
 
 </template>
@@ -61,7 +62,7 @@
       methods:{
         skipPage (index) {
           //跳转的子页面的路由
-          let routerArr = ['my', 'discover', 'video'];
+          let routerArr = ['my', 'discover', 'videos'];
           util.skipPageFn(index, this, routerArr);
           this.tabIndex = index
         }
@@ -72,6 +73,12 @@
 <style scoped lang="less">
   @import '../../assets/style/mixin.less';
   @import '../../assets/style/pageAnimate';
+  .headerBackground{
+    .mx_wh(100%, 2.4rem);
+    background-color: #ce3d3a;
+    .mx_postl(0rem, 0rem);
+    z-index: -1;
+  }
   .header{
     .mx_wh(100%, .6rem);
     .mx_flex_mid;

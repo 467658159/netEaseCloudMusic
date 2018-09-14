@@ -5,14 +5,14 @@
 </template>
 <script>
 	export default {
-		name: 'video',
+		name: 'videos',
 		data () {
 			return {
 
 			}
 		},
 		created () {
-			console.log('videoo')
+			
 		}
 	}
 </script>
