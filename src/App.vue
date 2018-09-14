@@ -66,7 +66,8 @@ export default {
   .headerBackground{
     .mx_wh(100%, 4rem);
     background-color: #ce3d3a;
-    .mx_postl(0rem, 0rem)
+    .mx_postl(0rem, 0rem);
+    z-index: -1;
   }
   .drawerContent{
     overflow-y: scroll;
