@@ -11,6 +11,7 @@ export default {
   //获取banner
   async getRecommendBanners({commit}){
     let res = await getData('queryBanner');
+    console.table(res.data)
     commit('GET_BANNERS', res.data.banners)
   }
 }

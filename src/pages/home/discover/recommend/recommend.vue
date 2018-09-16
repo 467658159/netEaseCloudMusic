@@ -1,7 +1,7 @@
 <template>
   <div class="recommend">
     <div class="swiperBox">
-      <swiper loop auto :aspect-ratio="336/730" height="1.68rem" class="recommendSwiper">
+      <swiper loop auto :aspect-ratio="336/730" height="1.68rem" class="recommendSwiper" dots-position="center">
         <swiper-item v-for="(item, i) in bannerList" :key="i">
           <img width="100%" height="100%" :src="item.picUrl">
         </swiper-item>

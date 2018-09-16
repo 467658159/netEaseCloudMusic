@@ -6,5 +6,4 @@ export default {
   //边栏显示
   drawerVisibility: false,
 
-
 }
