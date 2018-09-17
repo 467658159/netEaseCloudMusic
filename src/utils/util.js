@@ -7,9 +7,9 @@ export default {
       //如果to索引大于from索引,判断为前进状态,反之则为后退状态
     if(to.meta.index > from.meta.index){
       //设置动画名称
-      that.swichPageAnimate = 'slide-left';
+      that.switchPageAnimate = 'slide-left';
     }else{
-      that.swichPageAnimate = 'slide-right';
+      that.switchPageAnimate = 'slide-right';
     }
 	},
   //页面内跳转页面

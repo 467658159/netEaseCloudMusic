@@ -8,7 +8,9 @@ const apiList = {
   queryPhoneLogin: '/login/cellphone',
   //邮箱登录
   queryEmailLogin: '/login',
-  //用户信息
+  //用户详情
+  queryUserDetail: '/user/detail',
+  //用户歌单
   queryUserSubcount: '/user/playlist',
   //获取轮播banner{个性推荐}
   queryBanner: '/banner',

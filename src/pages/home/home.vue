@@ -2,16 +2,20 @@
   <div class="container">
     <div class="headerBackground"></div>
     <x-header class="header">
-      <span>overwrite-left</span>
+      <!-- 音乐 -->
       <x-icon slot="overwrite-left" type="navicon" size="35" style="fill:#fff;position:relative;left:-3px;top:-2px;" @click="$store.commit('DRAWER_SHOW')"></x-icon>
       <div slot="overwrite-title" class="recommendTitle">
+        <!-- 音乐 -->
         <i class="iconfont  icon-yinle" @click="skipPage(0)" :class="{recoActive: tabIndex == 0}"></i>
+        <!-- 发现 -->
         <i class="iconfont  icon-wangyiyunyinlezizhi-copy" @click="skipPage(1)" :class="{recoActive: tabIndex == 1}"></i>
+        <!-- 视频 -->
         <i class="iconfont  icon-zanting" @click="skipPage(2)" :class="{recoActive: tabIndex == 2}"></i>
       </div>
+      <!-- 搜索 -->
       <x-icon slot="right" type="ios-search-strong" size="30" style="fill:#fff;position:relative;left:-3px;" @click="$router.push('/search')"></x-icon>
     </x-header>
-    <transition :name="swichPageAnimate">
+    <transition :name="switchPageAnimate">
       <router-view/>
     </transition>
   </div>
@@ -30,7 +34,7 @@
       data () {
           return {
             tabIndex: 1,
-            swichPageAnimate: '',
+            switchPageAnimate: '',
           }
       },
       created () {
@@ -38,16 +42,19 @@
         //获取cookie信息
         if (cookie.get('loginValue')) {
           loginValue = JSON.parse(cookie.get('loginValue'));
+          // 将cookie中的值存储到login的state中去
+          this.$store.commit('GET_LOGIN_VALUE', loginValue);
         }
         console.dir(loginValue);
 
         //如果没有登录信息跳转到登录界面
         if (!loginValue) {
-          this.$router.replace('/login')
+          this.$router.replace('/login');
         } else {
-          this.skipPage(this.tabIndex)
+          this.skipPage(this.tabIndex);
         }
-
+        //初始化主页
+        this.$store.dispatch('initHome');
       },
       watch: {//使用watch 监听$router的变化
         $route(to, from) {

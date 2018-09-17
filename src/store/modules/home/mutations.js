@@ -6,5 +6,8 @@ export default {
   DRAWER_SHOW(state){
     state.drawerVisibility = !state.drawerVisibility
   },
-
+  //获取用户详情
+  GET_USER_DETAIL(state, payload){
+  	state.userDetail = payload
+  }
 }

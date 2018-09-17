@@ -2,11 +2,21 @@
   <div id="app">
     <drawer
       :show.sync="drawerVisibility"
-      :drawer-style="{'background-color':'#eee', width: '3rem', position: 'fixed'}">
+      :drawer-style="{'background-color':'#eee', width: '3.1rem', position: 'fixed'}">
       <div slot="drawer" class="drawerContent">
+        <div class="cover">
+          <div class="personalInfo">
+            <div class="avatar">
+              <!-- <img :src="userDetail.profile.avatarUrl" alt=""> -->
+            </div>
+            <div class="nickname">
+              {{userDetail.profile.nickname}}
+            </div>
+          </div>
+        </div>
         <router-link to="/account" style="display:block;width:100%;">账号</router-link>
       </div>
-      <transition :name="swichPageAnimate">
+      <transition :name="switchPageAnimate">
         <router-view/>
       </transition>
     </drawer>
@@ -25,7 +35,7 @@ export default {
   },
   data () {
     return {
-      swichPageAnimate: '',
+      switchPageAnimate: '',
     }
   },
   watch: {//使用watch 监听$router的变化
@@ -36,6 +46,7 @@ export default {
   computed: {
     ...mapState({
       drawerVisibility: state => state.home.drawerVisibility,
+      userDetail: state => state.home.userDetail
     }),
 //    drawer显示
     drawerVisibility: {

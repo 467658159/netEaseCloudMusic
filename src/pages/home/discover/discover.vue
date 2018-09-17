@@ -11,7 +11,7 @@
       <tab-item @on-item-click="skipPage" :selected="tabIndex == 1">朋友</tab-item>
       <tab-item @on-item-click="skipPage" :selected="tabIndex == 2">电台</tab-item>
     </tab>
-    <transition :name="swichPageAnimate">
+    <transition :name="switchPageAnimate">
       <router-view/>
     </transition>
 
@@ -29,7 +29,7 @@
 		data () {
 			return {
         tabIndex: 0,
-        swichPageAnimate: '',
+        switchPageAnimate: '',
 			}
 		},
 		created () {
