@@ -4,4 +4,8 @@
 export default {
   //banner 图
   bannerList: [],
+  //推荐歌单
+  recommendList: {},
+  //最新音乐
+  latestSongs: {}
 }

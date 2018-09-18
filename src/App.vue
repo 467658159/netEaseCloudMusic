@@ -4,16 +4,7 @@
       :show.sync="drawerVisibility"
       :drawer-style="{'background-color':'#eee', width: '3.1rem', position: 'fixed'}">
       <div slot="drawer" class="drawerContent">
-        <div class="cover">
-          <div class="personalInfo">
-            <div class="avatar">
-              <!-- <img :src="userDetail.profile.avatarUrl" alt=""> -->
-            </div>
-            <div class="nickname">
-              {{userDetail.profile.nickname}}
-            </div>
-          </div>
-        </div>
+        <drawerInfo></drawerInfo>
         <router-link to="/account" style="display:block;width:100%;">账号</router-link>
       </div>
       <transition :name="switchPageAnimate">
@@ -27,11 +18,13 @@
   import { mapState } from 'vuex'
   import { Drawer } from 'vux'
   import util from './utils/util'
+  import drawerInfo from './components/drawerInfo/drawerInfo'
 
 export default {
   name: 'App',
   components: {
-    Drawer
+    drawerInfo,
+    Drawer,
   },
   data () {
     return {
@@ -46,7 +39,6 @@ export default {
   computed: {
     ...mapState({
       drawerVisibility: state => state.home.drawerVisibility,
-      userDetail: state => state.home.userDetail
     }),
 //    drawer显示
     drawerVisibility: {
@@ -75,7 +67,7 @@ export default {
   }
 
   .drawerContent{
-    overflow-y: scroll;
+    //overflow-y: scroll;
   }
 
 </style>

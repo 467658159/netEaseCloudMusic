@@ -17,21 +17,28 @@
         <li><span><i class="iconfont icon-paihangbang"></i></span><p>排行榜</p></li>
       </ul>
     </div>
+    <!-- 推荐歌单 -->
+    <div class="recommendList">
+      <div class="listTitle">推荐歌单<x-icon type="ios-arrow-right" size="24" fill="#999"></x-icon></div>
+      <column :lists="recommendList.result?recommendList.result.slice(0, showNum):[]"></column>
+    </div>
   </div>
 </template>
 <script>
   import { mapState } from 'vuex'
   import { Swiper, SwiperItem } from 'vux'
+  import column from '../../../../components/column/column'
 
   export default {
     name: 'recommend',
     components: {
+      column,
       Swiper,
       SwiperItem
     },
     data () {
         return {
-
+            showNum: 6
         }
     },
     created () {
@@ -45,6 +52,8 @@
     computed: {
       ...mapState({
         bannerList: state => state.recommend.bannerList,
+        recommendList: state => state.recommend.recommendList,
+        latestSongs: state => state.recommend.latestSongs
       })
     }
   }
@@ -83,6 +92,15 @@
       }
     }
 
+  }
+  .recommendList{
+    .listTitle{
+      .mx_fc(18px, #444);
+      font-weight: bold;
+      margin: .2rem .1rem .1rem;
+      display: flex;
+      align-items: center;
+    }
   }
 
 </style>
