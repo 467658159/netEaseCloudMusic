@@ -19,12 +19,17 @@
 </template>
 <script>
     import { mapState } from 'vuex'
+    import { cookie } from 'vux'
 	export default {
 		name: 'drawerInfo',
 		data () {
 			return {
 
 			}
+		},
+		created() {
+			//获取是否签到
+			this.$store.commit('SIGN_IN', cookie.get('signIn'));
 		},
 		computed: {
 			...mapState({
@@ -33,8 +38,12 @@
 			})
 		},
 		methods: {
+			//签到
 			sign() {
 				this.$store.dispatch('signIn');
+				cookie.set('signIn', true, {
+		            expires: 1
+		        })
 			}
 		}
 	}
