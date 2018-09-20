@@ -14,6 +14,8 @@ const apiList = {
   queryPrSongList: "/personalized",
   //获取私人FM
   queryPersonalFM: '/personal_fm',
+  //签到
+  querySignIn: '/daily_signin',
   //用户歌单
   queryUserSubcount: '/user/playlist',
   //获取轮播banner{个性推荐}

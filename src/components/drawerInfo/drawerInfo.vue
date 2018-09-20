@@ -9,6 +9,10 @@
               	<span class="level">lv.{{userDetail.level}}</span>
               </p>
             </div>
+            <div class="signIn" @click="sign">
+            	<i class="iconfont icon-qiandao"></i>
+            	<span>{{signIn?'已签到':' 未签到'}}</span>
+            </div>
           </div>
         </div>
 	</div>
@@ -24,8 +28,14 @@
 		},
 		computed: {
 			...mapState({
-      			userDetail: state => state.home.userDetail
+      			userDetail: state => state.home.userDetail,
+      			signIn: state => state.signIn
 			})
+		},
+		methods: {
+			sign() {
+				this.$store.dispatch('signIn');
+			}
 		}
 	}
 </script>
@@ -35,6 +45,9 @@
 		background-size: 100%, 100%;
 	    background-position-y: center;
 		.mx_wh(100%, 2rem);
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
 		.avatar{
 			.mx_wh(.8rem, auto);
 			text-align: center;
@@ -52,6 +65,18 @@
 				.mx_bd(1px, #fff);
 				.mx_bdrs(5px);
 			}
+		}
+		.signIn{
+			.mx_wh(.8rem, .3rem);
+			.mx_fc(14px, #fff);
+			.mx_bdrs(15px);
+			margin-top: 1.6rem;
+			margin-right: .2rem;
+			color: #fff;
+			.mx_bd(1px, #fff);
+			.mx_flex_mid;
+			font-weight: bold;
+			justify-content: space-around;
 		}
 	}
 </style>

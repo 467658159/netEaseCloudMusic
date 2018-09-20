@@ -11,7 +11,12 @@
     <!-- 分类 -->
     <div class="category">
       <ul>
-        <li><span><i class="iconfont icon-FM"></i></span><p>私人FM</p></li>
+        <li>
+          <router-link to="/playSongs">
+            <span><i class="iconfont icon-FM"></i></span>
+            <p>私人FM</p>
+          </router-link>
+        </li>
         <li><span><i class="iconfont icon-tuijian"></i></span><p>每日推荐</p></li>
         <li><span><i class="iconfont icon-gedan"></i></span><p>歌单</p></li>
         <li><span><i class="iconfont icon-paihangbang"></i></span><p>排行榜</p></li>
@@ -74,6 +79,9 @@
       justify-content: space-around;
       border-bottom: .01rem solid #efefef;
       li{
+        a{
+          .mx_fc(12px, #000);
+        }
         text-align: center;
         span{
           display: block;
