@@ -16,6 +16,8 @@ const apiList = {
   queryPersonalFM: '/personal_fm',
   //签到
   querySignIn: '/daily_signin',
+  //音乐url
+  queryMusicUrl: "/music/url",
   //用户歌单
   queryUserSubcount: '/user/playlist',
   //获取轮播banner{个性推荐}
@@ -38,8 +40,6 @@ const apiList = {
   querySongListDetail: '/playlist/detail',
   //歌曲详情
   querySongDetail: '/song/detail',
-  //音乐url
-  queryMusicUrl: "/music/url",
   //音乐歌词
   queryLyric: "/lyric",
   //电台节目

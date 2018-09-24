@@ -3,5 +3,10 @@
  */
  export default {
  	// 歌曲详情
- 	songDetails: {}
+ 	songDetails: {
+ 		id:'',
+ 		name: '',
+ 		picUrl: ''
+ 	},
+ 	musicUrl:''
  }
