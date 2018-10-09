@@ -12,6 +12,7 @@ import home from './modules/home';
 import recommend from './modules/recommend';
 import discover from './modules/discover';
 import playSongs from './modules/playSongs';
+import playList from './modules/playList';
 
 Vue.use(Vuex);
 
@@ -25,6 +26,7 @@ export default new Vuex.Store({
     home,
     recommend,
     playSongs,
+    playList,
     discover
   }
 })

@@ -6,6 +6,7 @@ import loginIn from '@/pages/login/loginIn'
 import account from '@/pages/account/account'
 import search from '@/pages/search/search'
 import playSongs from '@/pages/playSongs/playSongs'
+import playList from '@/pages/playList/playList'
 import homeRouters from './home'
 
 Vue.use(Router);
@@ -45,8 +46,13 @@ export default new Router({
     },{
       path: '/playSongs',
       name: 'playSongs',
-      meta:{index:1},
+      meta:{index:3},
       component: playSongs
+    },{
+      path: '/playList/:playListId',
+      name: 'playList',
+      meta:{index:2},
+      component: playList
     },
   ]
 })

@@ -8,7 +8,7 @@
 			<x-header :left-options="{backText: ''}" style="background-color: transparent">{{songDetails.name}}</x-header>
 		</div>
 		<!-- 播放音乐地址 -->
-		<video controls="" autoplay="" name="media"><source :src="musicUrl" type="audio/mpeg"></video>
+		<audio controls="" autoplay="" :src="musicUrl"></audio>
 	</div>
 	<div v-else class="playSongsBg noMusic">
 		<x-header :left-options="{backText: ''}" style="background-color: transparent;">暂无歌曲</x-header>
@@ -50,6 +50,7 @@
 		background-size: 100% 100%;
 		position: relative;
 		z-index: -3;
+		overflow: hidden;
 	}
 	.noMusic{
 		background-image:url('../../assets/img/login-bg.jpg');

@@ -20,6 +20,7 @@ export default {
   //获取推荐歌单
   async getRecommendList({commit}){
     let res = await getData('queryPrSongList');
+    console.log('推荐歌单', res.data)
     commit('GET_RECOMMEND_LIST', res.data);
   },
   //获取最新音乐

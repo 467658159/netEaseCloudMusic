@@ -19,10 +19,10 @@ export default {
 		let songDetails = null;
 		if (res.data.code == 200) {
 			songDetails = {
-						id: res.data.data[0].id,
-						name: res.data.data[0].name,
-						picUrl: res.data.data[0].album.picUrl
-					}
+				id: res.data.data[0].id,
+				name: res.data.data[0].name,
+				picUrl: res.data.data[0].album.picUrl
+			}
 		}
 		
 		commit('GET_SONG_DETAILS', songDetails);

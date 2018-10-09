@@ -1,10 +1,12 @@
 <template>
 	<div class="column">
 		<div class="list" v-for="(item, index) in lists">
-			<div class="imgBox">
-				<img v-lazy="item.picUrl" alt="">
-			</div>
-			<p class="desc">{{item.name}}</p>
+			<router-link :to="{name: 'playList', params: {playListId: item.id}}">
+				<div class="imgBox">
+					<img v-lazy="item.picUrl" alt="">
+				</div>
+				<p class="desc">{{item.name}}</p>
+			</router-link>
 		</div>
 	</div>
 </template>
@@ -32,6 +34,9 @@
 			img{
 				.mx_wh(1.15rem, 1.15rem);
 				.mx_bdrs(4px);
+			}
+			p{
+				color:#444;
 			}
 		}
 	}

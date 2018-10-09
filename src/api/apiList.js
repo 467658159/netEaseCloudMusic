@@ -10,6 +10,8 @@ const apiList = {
   queryEmailLogin: '/login',
   //用户详情
   queryUserDetail: '/user/detail',
+  //获取轮播banner{个性推荐}
+  queryBanner: '/banner',
   //获取推荐歌单{个性推荐}
   queryPrSongList: "/personalized",
   //获取私人FM
@@ -18,10 +20,10 @@ const apiList = {
   querySignIn: '/daily_signin',
   //音乐url
   queryMusicUrl: "/music/url",
+  //推荐歌单详情
+  querySongListDetail: '/playlist/detail',
   //用户歌单
   queryUserSubcount: '/user/playlist',
-  //获取轮播banner{个性推荐}
-  queryBanner: '/banner',
   //获取独家放送{个性推荐}
   queryPrivateContxt: "/personalized/privatecontent",
   //获取最新音乐{个性推荐}
@@ -36,8 +38,6 @@ const apiList = {
   queryPlayList: "/top/playlist",
   //排行榜{排行榜}
   queryToplist: "/top/list",
-  //推荐歌单详情
-  querySongListDetail: '/playlist/detail',
   //歌曲详情
   querySongDetail: '/song/detail',
   //音乐歌词
