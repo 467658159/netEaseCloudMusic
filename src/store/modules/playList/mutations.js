@@ -3,7 +3,7 @@
  */
 export default {
 	GET_PLAYLIST_ID (payload) {
-		state.playListId = payload;
+		state.playListId = payload.playListId;
 	},
 	//获取歌曲列表
 	GET_SONGS_LIST (payload) {

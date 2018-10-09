@@ -14,7 +14,7 @@
 		created () {
 			let playListId = this.$route.params.playListId
 			console.log(this.$store)
-			this.$store.commit('GET_PLAYLIST_ID', playListId);
+			this.$store.commit('GET_PLAYLIST_ID', {playListId});
 		}
 	}
 </script>
