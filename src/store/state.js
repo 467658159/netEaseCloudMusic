@@ -3,5 +3,7 @@
  */
 export default {
   //导航索引
-  signIn: false
+  signIn: false,
+  //FM详情
+  FMDetail: {},
 }

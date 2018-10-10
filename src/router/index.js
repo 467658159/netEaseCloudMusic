@@ -44,7 +44,7 @@ export default new Router({
       meta:{index:1},
       component: search
     },{
-      path: '/playSongs',
+      path: '/playSongs/:songId',
       name: 'playSongs',
       meta:{index:3},
       component: playSongs

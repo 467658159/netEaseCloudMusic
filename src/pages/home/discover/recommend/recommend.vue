@@ -11,11 +11,9 @@
     <!-- 分类 -->
     <div class="category">
       <ul>
-        <li>
-          <router-link to="/playSongs">
-            <span><i class="iconfont icon-FM"></i></span>
-            <p>私人FM</p>
-          </router-link>
+        <li @click="toFM">
+          <span><i class="iconfont icon-FM"></i></span>
+          <p>私人FM</p>
         </li>
         <li><span><i class="iconfont icon-tuijian"></i></span><p>每日推荐</p></li>
         <li><span><i class="iconfont icon-gedan"></i></span><p>歌单</p></li>
@@ -60,6 +58,14 @@
         recommendList: state => state.recommend.recommendList,
         latestSongs: state => state.recommend.latestSongs
       })
+    },
+    methods: {
+      //跳转到FM
+      async toFM () {
+        await this.$store.dispatch('getFMSongDetails');
+        let songId = this.$store.state.FMDetail.id;
+        this.$router.push({ name: 'playSongs', params: { songId } });
+      }
     }
   }
 </script>

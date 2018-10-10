@@ -22,6 +22,9 @@ const apiList = {
   queryMusicUrl: "/music/url",
   //推荐歌单详情
   querySongListDetail: '/playlist/detail',
+  //歌曲详情
+  querySongDetail: '/song/detail',
+  
   //用户歌单
   queryUserSubcount: '/user/playlist',
   //获取独家放送{个性推荐}
@@ -38,8 +41,6 @@ const apiList = {
   queryPlayList: "/top/playlist",
   //排行榜{排行榜}
   queryToplist: "/top/list",
-  //歌曲详情
-  querySongDetail: '/song/detail',
   //音乐歌词
   queryLyric: "/lyric",
   //电台节目

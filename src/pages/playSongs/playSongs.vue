@@ -8,7 +8,7 @@
 			<x-header :left-options="{backText: ''}" style="background-color: transparent">{{songDetails.name}}</x-header>
 		</div>
 		<!-- 播放音乐地址 -->
-		<audio controls="" autoplay="" :src="musicUrl"></audio>
+		<audio controls="" autoplay :src="musicUrl"></audio>
 	</div>
 	<div v-else class="playSongsBg noMusic">
 		<x-header :left-options="{backText: ''}" style="background-color: transparent;">暂无歌曲</x-header>
@@ -17,6 +17,7 @@
 <script>
     import { mapState } from 'vuex';
     import { XHeader } from 'vux';
+
 	export default {
 		name: 'playSongs',
 		components:{
@@ -28,10 +29,11 @@
 			}
 		},
 		async created() {
-			await this.$store.dispatch('getFMSongDetails');
-			if (this.songDetails) {
-				this.$store.dispatch('playSong');
-			}
+			let songId = this.$route.params;
+			console.log('音乐ID', songId)
+			this.$store.commit('GET_SONG_ID', songId);
+			this.$store.dispatch('playSong');
+			this.$store.dispatch('getSontDetail');
 		},
 		computed: {
 			...mapState({
