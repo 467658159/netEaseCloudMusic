@@ -7,8 +7,6 @@
 		<div class="playSongs"v-if="songDetails">
 			<x-header :left-options="{backText: ''}" style="background-color: transparent">{{songDetails.name}}</x-header>
 		</div>
-		<!-- 播放音乐地址 -->
-		<audio controls="" autoplay :src="musicUrl"></audio>
 	</div>
 	<div v-else class="playSongsBg noMusic">
 		<x-header :left-options="{backText: ''}" style="background-color: transparent;">暂无歌曲</x-header>
@@ -31,14 +29,12 @@
 		async created() {
 			let songId = this.$route.params;
 			console.log('音乐ID', songId)
-			this.$store.commit('GET_SONG_ID', songId);
-			this.$store.dispatch('playSong');
-			this.$store.dispatch('getSontDetail');
+			this.$store.dispatch('getSongUrl', songId);
+			this.$store.dispatch('getSongDetail', songId);
 		},
 		computed: {
 			...mapState({
 				songDetails: state => state.playSongs.songDetails,
-				musicUrl: state => state.playSongs.musicUrl
 			})
 		}
 	}

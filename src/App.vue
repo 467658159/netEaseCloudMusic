@@ -7,6 +7,7 @@
         <drawerInfo></drawerInfo>
         <router-link to="/account" style="display:block;width:100%;">账号</router-link>
       </div>
+      <music :isShow="false"></music>
       <transition :name="switchPageAnimate">
         <router-view/>
       </transition>
@@ -19,11 +20,13 @@
   import { Drawer } from 'vux'
   import util from './utils/util'
   import drawerInfo from './components/drawerInfo/drawerInfo'
+  import music from './components/music/music'
 
 export default {
   name: 'App',
   components: {
     drawerInfo,
+    music,
     Drawer,
   },
   data () {

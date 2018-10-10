@@ -5,8 +5,8 @@ import getData from '../../../api/getData';
 
 export default {
 	//获取歌曲列表信息
-	async getSongsListInfo (context) {
-		let playListId = context.state.playListId
+	async getSongsListInfo (context, payload) {
+		let playListId = payload.playListId
 		let res = await getData('querySongListDetail', {
 			id: playListId
 		})

@@ -5,19 +5,19 @@ import getData from '../../../api/getData';
 
 export default {
 	// 获取歌曲地址
-	async playSong(context) {
-		let id = { id: context.state.songId };
+	async getSongUrl(context, payload) {
+		let id = { id: payload.songId };
 		let res = await getData('queryMusicUrl', id);
 		console.log('歌曲地址', res.data);
-		context.commit('PLAY_SONG', res.data.data[0].url)
+		context.commit('GET_SONG_URL', res.data.data[0].url)
 	},
 	//获取歌曲详情
-	async getSontDetail(context) {
-		let ids = { ids: context.state.songId };
+	async getSongDetail(context, payload) {
+		let ids = { ids: payload.songId };
 		let res = await getData('querySongDetail', ids);
-		console.log('歌曲详情', res.data.songs);
+		console.log('歌曲详情', res.data);
 		let songDetails = null;
-		if (res.data.code == 200) {
+		if (res.data.songs.length) {
 			songDetails = {
 				name: res.data.songs[0].name,
 				picUrl: res.data.songs[0].al.picUrl

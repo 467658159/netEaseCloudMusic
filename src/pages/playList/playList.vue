@@ -26,8 +26,7 @@
 		},
 		created () {
 			let playListId = this.$route.params.playListId
-			this.$store.commit('GET_PLAYLIST_ID', {playListId});
-			this.$store.dispatch('getSongsListInfo');
+			this.$store.dispatch('getSongsListInfo', {playListId});
 		},
 		computed: {
 			...mapState({
