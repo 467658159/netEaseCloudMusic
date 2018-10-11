@@ -35,7 +35,7 @@
 		},
 		methods: {
 
-		}
+		},
 	}
 </script>
 <style scoped lang="less">

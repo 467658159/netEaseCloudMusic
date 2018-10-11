@@ -64,6 +64,7 @@
   @import '../../../assets/style/mixin.less';
   .discoverTabNaver{
     .mx_wh(100%, .1rem);
+    background: #ce3d3a;
     .vux-tab-item {
       background: #ce3d3a;
     }

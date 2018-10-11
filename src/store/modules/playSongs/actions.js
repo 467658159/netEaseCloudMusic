@@ -9,7 +9,9 @@ export default {
 		let id = { id: payload.songId };
 		let res = await getData('queryMusicUrl', id);
 		console.log('歌曲地址', res.data);
-		context.commit('GET_SONG_URL', res.data.data[0].url)
+		context.commit('GET_SONG_URL', res.data.data[0].url);
+		// context.commit('SET_SONG_STATUS', true);
+		
 	},
 	//获取歌曲详情
 	async getSongDetail(context, payload) {

@@ -7,7 +7,7 @@
         <drawerInfo></drawerInfo>
         <router-link to="/account" style="display:block;width:100%;">账号</router-link>
       </div>
-      <music :isShow="false"></music>
+      <music :isShow="isShow"></music>
       <transition :name="switchPageAnimate">
         <router-view/>
       </transition>
@@ -34,14 +34,19 @@ export default {
       switchPageAnimate: '',
     }
   },
-  watch: {//使用watch 监听$router的变化
+  created() {
+    
+  },
+  watch: {
+    //使用watch 监听$router的变化
     $route(to, from) {
       util.watchPageAnimate(to, from, this);
-    }
+    },
   },
   computed: {
     ...mapState({
       drawerVisibility: state => state.home.drawerVisibility,
+      isShow: state => state.playSongs.isShow,
     }),
 //    drawer显示
     drawerVisibility: {

@@ -1,5 +1,6 @@
 <template>
   <div class="recommend">
+    <div class="headerBackground"></div>  
     <!-- 轮播图 -->
     <div class="swiperBox">
       <swiper  loop auto :aspect-ratio="336/730" height="1.68rem"  width="100%" class="recommendSwiper" dots-position="center">
@@ -71,50 +72,64 @@
 </script>
 <style scoped lang="less">
   @import '../../../../assets/style/mixin.less';
-  .swiperBox{
-    .recommendSwiper{
-      margin: 0rem .075rem;
-      .mx_bdrs(.05rem);
+  .recommend{
+    position: absolute;
+    top: 108px;
+    bottom: 0px;
+    overflow-y: scroll;
+    .headerBackground{
+      .mx_wh(100%, 1.3rem);
+      background-color: #ce3d3a;
+      .mx_postl(0rem, 0rem);
+      z-index: -1;
     }
-  }
-  .category{
-    ul {
-      .mx_wh(3.75rem, 1.2rem);
-      .mx_flex_mid;
-      flex-direction: row;
-      justify-content: space-around;
-      border-bottom: .01rem solid #efefef;
-      li{
-        a{
-          .mx_fc(12px, #000);
-        }
-        text-align: center;
-        span{
-          display: block;
-          .mx_wh(.55rem, .55rem);
-          .mx_flex_mid;
-          background-color: #ce3d3a;
-          .mx_bdrs(50%);
-          box-shadow: 0px 0px 4px #d66664;
-          i.iconfont{
-            .mx_fc(.3rem, #fff);
+    .swiperBox{
+      .recommendSwiper{
+        margin: 0rem .075rem;
+        .mx_bdrs(.05rem);
+        margin-top: .05rem;
+      }
+    }
+    .category{
+      ul {
+        .mx_wh(3.75rem, 1.2rem);
+        .mx_flex_mid;
+        flex-direction: row;
+        justify-content: space-around;
+        border-bottom: .01rem solid #efefef;
+        li{
+          a{
+            .mx_fc(12px, #000);
+          }
+          text-align: center;
+          span{
+            display: block;
+            .mx_wh(.55rem, .55rem);
+            .mx_flex_mid;
+            background-color: #ce3d3a;
+            .mx_bdrs(50%);
+            box-shadow: 0px 0px 4px #d66664;
+            i.iconfont{
+              .mx_fc(.3rem, #fff);
+            }
+          }
+          p{
+            margin-top: .05rem;
           }
         }
-        p{
-          margin-top: .05rem;
-        }
+      }
+
+    }
+    .recommendList{
+      .listTitle{
+        .mx_fc(18px, #444);
+        font-weight: bold;
+        margin: .2rem .1rem .1rem;
+        display: flex;
+        align-items: center;
       }
     }
 
   }
-  .recommendList{
-    .listTitle{
-      .mx_fc(18px, #444);
-      font-weight: bold;
-      margin: .2rem .1rem .1rem;
-      display: flex;
-      align-items: center;
-    }
-  }
-
+  
 </style>

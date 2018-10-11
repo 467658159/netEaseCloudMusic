@@ -8,5 +8,9 @@
  		picUrl: ''
  	},
  	// 音乐地址
- 	musicUrl: ''
+ 	musicUrl: '',
+ 	// 底部播放是否显示
+ 	isShow: false,
+ 	//歌曲播放状态
+ 	playStatus: false,
  }

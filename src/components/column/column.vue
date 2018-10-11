@@ -31,6 +31,7 @@
 		justify-content: space-around;
 		.list{
 			.mx_wh(1.15rem, 1.8rem);
+			overflow: hidden;
 			img{
 				.mx_wh(1.15rem, 1.15rem);
 				.mx_bdrs(4px);

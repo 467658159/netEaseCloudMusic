@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <div class="headerBackground"></div>
     <x-header class="header">
       <!-- 音乐 -->
       <x-icon slot="overwrite-left" type="navicon" size="35" style="fill:#fff;position:relative;left:-3px;top:-2px;" @click="$store.commit('DRAWER_SHOW')"></x-icon>
@@ -80,12 +79,6 @@
 <style scoped lang="less">
   @import '../../assets/style/mixin.less';
   @import '../../assets/style/pageAnimate';
-  .headerBackground{
-    .mx_wh(100%, 2.4rem);
-    background-color: #ce3d3a;
-    .mx_postl(0rem, 0rem);
-    z-index: -1;
-  }
   .header{
     .mx_wh(100%, .6rem);
     .mx_flex_mid;
