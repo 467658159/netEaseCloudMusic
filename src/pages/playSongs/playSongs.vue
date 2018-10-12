@@ -38,11 +38,7 @@
 			})
 		},
 		watch: {
-	    	//使用watch 监听$router的变化
-	    	$route(to, from) {
-		      	console.log(to, from)
-		      	console.log(1111111)
-		    },
+	    	
 		},
 	}
 </script>

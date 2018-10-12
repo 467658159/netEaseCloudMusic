@@ -41,6 +41,13 @@ export default {
     //使用watch 监听$router的变化
     $route(to, from) {
       util.watchPageAnimate(to, from, this);
+      console.log(to.params.songId, from.params.songId)
+      //是否进入歌曲播放页面
+      if (from.params.songId) {
+        this.$store.commit('MINI_MUSIC_IS_SHOW', true);
+      } else if (to.params.songId) {
+        this.$store.commit('MINI_MUSIC_IS_SHOW', false);
+      }
     },
   },
   computed: {
@@ -51,10 +58,10 @@ export default {
 //    drawer显示
     drawerVisibility: {
       get () {
-          return this.$store.state.home.drawerVisibility
+          return this.$store.state.home.drawerVisibility;
       },
       set () {
-          this.$store.commit('DRAWER_SHOW')
+          this.$store.commit('DRAWER_SHOW');
       }
     }
   }

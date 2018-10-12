@@ -16,7 +16,7 @@ export default {
 	//获取私人FM歌曲详情
 	async getFMSongDetails({commit}) {
 		let res = await getData('queryPersonalFM');
-		let FMDetail = { id: 0 };
+		let FMDetail = { id: 1 };
 		if (res.data.code == 200) {
 			FMDetail.id = res.data.data[0].id
 		}

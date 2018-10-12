@@ -17,10 +17,10 @@
 		},
 		created() {
 			//判断歌曲播放状态
-		    console.log(this.playStatus);
-		    if (this.playStatus) {
-		      this.$store.commit('MINI_MUSIC_IS_SHOW', true);
-		    }
+		    // console.log(this.playStatus);
+		    // if (this.playStatus) {
+		    //   this.$store.commit('MINI_MUSIC_IS_SHOW', true);
+		    // }
 		},
 		computed: {
 			...mapState({

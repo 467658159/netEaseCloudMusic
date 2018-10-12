@@ -49,9 +49,7 @@
       this.$store.dispatch('initRecommend');
     },
     watch: {
-      $route (to, from) {
-        // console.log(to, from)
-      }
+      
     },
     computed: {
       ...mapState({
@@ -131,5 +129,7 @@
     }
 
   }
-  
+  .recommend::-webkit-scrollbar {
+    display:none
+  }
 </style>
