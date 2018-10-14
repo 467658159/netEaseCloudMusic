@@ -2,7 +2,16 @@
 	<div class="music" v-show="isShow">
 		<audio :src="musicUrl" autoplay ref="player"></audio>
 		<div class="miniAudio">
-			<i @click="playMusic">播放</i>
+			<div class="miniMusicInfo">
+				<div class="thumbnail">
+					<img v-lazy="songDetails.picUrl" alt="">
+				</div>
+				<div class="info">
+					<div class="musicName">{{songDetails.name}}</div>
+					<div class="musicDesc"></div>
+				</div>
+			</div>
+			<i @click="playMusic">{{playStatus?'播放':'暂停'}}</i>
 		</div>
 	</div>
 </template>
@@ -16,11 +25,7 @@
 			return {}
 		},
 		created() {
-			//判断歌曲播放状态
-		    // console.log(this.playStatus);
-		    // if (this.playStatus) {
-		    //   this.$store.commit('MINI_MUSIC_IS_SHOW', true);
-		    // }
+			
 		},
 		computed: {
 			...mapState({
@@ -28,6 +33,8 @@
 				musicUrl: state => state.playSongs.musicUrl,
 				// 歌曲状态
 				playStatus: state => state.playSongs.playStatus,
+				//歌曲详情
+				songDetails: state => state.playSongs.songDetails,
 			})
 		},
 		watch: {
@@ -43,7 +50,7 @@
 		},
 		methods: {
 			playMusic() {
-				this.$store.commit('SET_SONG_STATUS', false);
+				this.$store.commit('SET_SONG_STATUS', !this.playStatus);
 			}
 		}
 	}
@@ -56,5 +63,20 @@
 		bottom: 0rem;
 		background: #fff;
 		z-index: 2;
+		display: flex;
+		.miniMusicInfo{
+			width: 3rem;
+			display:flex;
+			align-items: center;
+			.thumbnail{
+				margin-left: .1rem;
+				.mx_wh(.4rem, .4rem);
+				img{
+					.mx_wh(100%, 100%);
+					.mx_bdrs(3px);
+				}
+			}
+		}
+		
 	}
 </style>

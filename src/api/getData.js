@@ -6,8 +6,8 @@ import axios from 'axios';
 
 export default async (pathName, queryData) => {
   // let str = 'http://172.20.10.5:3000';
-  let str = 'http://192.168.1.15:3000';
-  // let str = 'http://localhost:3000';
+  // let str = 'http://192.168.1.15:3000';
+  let str = 'http://localhost:3000';
   let url = str.concat(apiList[pathName]);
   let result;
   console.log(url);
