@@ -10,7 +10,7 @@ export default {
 		let res = await getData('queryMusicUrl', id);
 		console.log('歌曲地址', res.data);
 		context.commit('GET_SONG_URL', res.data.data[0].url);
-		// context.commit('SET_SONG_STATUS', true);
+		context.commit('SET_SONG_STATUS', true);
 		
 	},
 	//获取歌曲详情
@@ -22,7 +22,8 @@ export default {
 		if (res.data.songs.length) {
 			songDetails = {
 				name: res.data.songs[0].name,
-				picUrl: res.data.songs[0].al.picUrl
+				picUrl: res.data.songs[0].al.picUrl,
+				singer:  res.data.songs[0].ar[0].name,
 			}
 		}
 		context.commit('GET_SONG_DETAILS', songDetails);

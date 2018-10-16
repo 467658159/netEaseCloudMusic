@@ -5,7 +5,8 @@
  	// 歌曲详情
  	songDetails: {
  		name: '',
- 		picUrl: ''
+ 		picUrl: '',
+ 		singer: ''
  	},
  	// 音乐地址
  	musicUrl: '',

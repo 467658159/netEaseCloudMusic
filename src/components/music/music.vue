@@ -1,6 +1,6 @@
 <template>
 	<div class="music" v-show="isShow">
-		<audio :src="musicUrl" autoplay ref="player"></audio>
+		<audio :src="musicUrl" autoplay ref="player" @ended="initMusicStatus"></audio>
 		<div class="miniAudio">
 			<div class="miniMusicInfo">
 				<div class="thumbnail">
@@ -8,10 +8,11 @@
 				</div>
 				<div class="info">
 					<div class="musicName">{{songDetails.name}}</div>
-					<div class="musicDesc"></div>
+					<div class="musicDesc">{{songDetails.singer}}</div>
 				</div>
 			</div>
-			<i @click="playMusic">{{playStatus?'播放':'暂停'}}</i>
+			<i @click="playMusic" class="iconfont icon-zanting1" v-if="playStatus"></i>
+			<i @click="playMusic" class="iconfont icon-bofang" v-else></i>
 		</div>
 	</div>
 </template>
@@ -25,7 +26,7 @@
 			return {}
 		},
 		created() {
-			
+			console.log(this.playStatus)
 		},
 		computed: {
 			...mapState({
@@ -51,6 +52,9 @@
 		methods: {
 			playMusic() {
 				this.$store.commit('SET_SONG_STATUS', !this.playStatus);
+			},
+			initMusicStatus() {
+				this.$store.commit('SET_SONG_STATUS', false);
 			}
 		}
 	}
@@ -64,6 +68,7 @@
 		background: #fff;
 		z-index: 2;
 		display: flex;
+	    border-top: 1px solid #eee;
 		.miniMusicInfo{
 			width: 3rem;
 			display:flex;
@@ -76,7 +81,22 @@
 					.mx_bdrs(3px);
 				}
 			}
+			.info{
+				display: flex;
+				flex-direction: column;
+				margin-left: 10px;
+				.musicName{
+					font-weight: bold;
+					font-size: 14px;
+				}
+				.musicDesc{
+					font-size: 12px;
+					color: #999;
+				}
+			}
 		}
-		
+		.iconfont{
+			font-size: 30px;
+		}
 	}
 </style>
