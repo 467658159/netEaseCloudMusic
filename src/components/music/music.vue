@@ -85,13 +85,16 @@
 				display: flex;
 				flex-direction: column;
 				margin-left: 10px;
+				overflow: hidden;
 				.musicName{
 					font-weight: bold;
 					font-size: 14px;
+					white-space: nowrap;
 				}
 				.musicDesc{
 					font-size: 12px;
 					color: #999;
+					white-space: nowrap;
 				}
 			}
 		}
